@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<body>
+		<h2>KOkidko Sergiy дистанційне навчання Программа №16 до портфоліо 10:12 29.09.2022</h2>
+
+		<canvas id="canvas" width="400" height="500"></canvas>
+
+		<script>
+			const canvas = document.getElementById('canvas');
+			const ctx = canvas.getContext('2d');
+			const ctx2 = canvas.getContext('2d');
+
+			ctx.fillStyle = 'burlywood';
+			ctx.fillRect(0, 0, 400, 500);
+
+			let x2 = 1200;
+			let add = 30;
+
+			function render() {
+				let gr = ctx2.createLinearGradient(80, 100, x2, 100);
+
+				gr.addColorStop(0, 'teal');
+				gr.addColorStop(0.2, 'teal');
+				gr.addColorStop(0.5, 'white');
+				gr.addColorStop(0.8, 'teal');
+				gr.addColorStop(1, 'teal');
+				//gr.addColorStop(0, 'red');
+				//gr.addColorStop(0.2, 'orangered');
+				//gr.addColorStop(0.5, 'yellow');
+				//gr.addColorStop(0.8, 'teal');
+				//gr.addColorStop(1, 'purple');
+
+				ctx2.fillStyle = gr;
+				ctx2.font = 'bold 70px Arial';
+				ctx.fillText('Kokidko', 70, 200);
+				ctx.fillText('Sergiy', 96, 270);
+
+				x2 -= add;
+
+				if (x2 < -250) {
+					add = -add;
+				}
+				if (x2 > 1200) {
+					add = -add;
+				}
+
+				requestAnimationFrame(render);
+			}
+			render();
+		</script>
+	</body>
+</html>
